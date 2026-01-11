@@ -1,0 +1,85 @@
+Customise the code for these features:
+Product Requirement Document (PRD): Cohort Leads CRM
+Version: 2.0 Product Owner: Rohan Mishra (Mastry.in) Target Platform: Web Application (React Frontend + Google Sheets Backend) 
+
+1. Executive Summary
+The goal is to build a comprehensive CRM tailored for managing leads in cohort-based courses. The system will bridge a user-friendly React web interface with a Google Sheets backend to provide a low-cost, high-efficiency solution for tracking learner applications, automating communications, and managing sales team assignments.
+2. User Personas & Roles
+SuperAdmin/Admin: Full system access, capable of managing settings, users, and all data.
+Sales/Advisor: Focused access to assigned leads, scheduling calls, and updating lead statuses.
+System (Automated): Performs background tasks like qualification, assignment, and cleanup.
+3. High-Level Architecture
+The system operates on a decoupled architecture to ensure ease of use and data accessibility:
+Frontend: A React Web Application serving as the User Interface (UI) for the team.
+Database: Google Sheets acts as the primary database, storing leads, programs, cohorts, and logs.
+Logic Layer: Google Apps Script handles server-side logic, including automations, triggers, and API connectivity.
+Authentication: Google OAuth 2.0 ensures secure access using existing organizational Google accounts.
+
+4. Functional Requirements
+4.1 Lead Management
+Centralized Database: Storage of all lead details including demographics, source, and verification status.
+Visualization:
+Kanban View: A drag-and-drop interface for moving leads through pipeline stages (e.g., New Lead -> Applied -> Eligible).
+Table View: A list view for bulk data analysis and filtering.
+Lead Actions:
+Create, edit, and soft-delete leads (moved to Trash).
+De-duplication: Automatic merging of duplicate leads based on phone numbers, preserving the history of sources.
+Filtering: Search and filter by status, source, assignee, or program.
+4.2 Automation & Logic
+Qualification Engine: Automatically determines if a lead is "Eligible" or "Not Eligible" based on application form responses and predefined rules (e.g., negative keywords, numeric thresholds).
+Round-Robin Assignment: Automatically distributes new eligible leads among active Sales/Advisor users to ensure balanced workloads.
+Status Automation: Changing a lead's status can trigger background actions, such as sending emails or webhooks.
+4.3 Program & Cohort Management
+Program Definition: Ability to define course details, pricing options, and eligibility criteria.
+Cohort Tracking: Manage specific batches (Cohorts) with start/end dates, capacity limits, and application deadlines.
+Status Indicators: Visual cues for cohorts that are "Open," "In Progress," or have deadlines approaching.
+4.4 Communication & Notifications
+Email Integration:
+Send automated emails based on status changes (e.g., "Interview Confirmation").
+Use HTML templates with dynamic variable replacement (e.g., Lead Name).
+WhatsApp Integration:
+Trigger WhatsApp messages via Aisensy using mapped templates.
+Internal Notifications:
+In-app alerts for advisors when leads are assigned to them.
+4.5 Sales Operations & Logs
+Activity Logging: A complete audit trail of every action taken on a lead (created, assigned, status changed, commented).
+Comments System: internal notes with support for Markdown and user mentions.
+Call Scheduling: Integration with scheduling tools (Trafft) to track "Sales" or "Interview" calls.
+Payment Tracking: Record full payments or installments, including due dates and transaction IDs.
+4.6 Form Builder
+Dynamic Forms: A built-in builder to create application forms linked to specific programs.
+Conditional Logic: Support for showing/hiding fields based on previous answers.
+Response Storage: All form submissions are linked directly to the Lead record.
+
+5. Integration Requirements
+The system requires connectivity with third-party tools to function as a complete ecosystem:
+Service
+Purpose
+Trigger/Method
+Pabbly Connect
+General automation and cross-platform data syncing
+Webhooks triggered by status changes.
+Aisensy
+Sending automated WhatsApp messages to leads
+Triggered via Apps Script on status change.
+Encharge / SMTP
+Sending transactional and marketing emails
+Triggered via Apps Script.
+Trafft
+Managing appointment scheduling
+Synced to the "Calls" sheet.
+
+Export to Sheets
+
+6. Non-Functional Requirements
+Data Integrity: Soft-delete functionality to prevent accidental data loss, with a 60-day retention period in "Trash" before permanent deletion.
+Performance: Utilization of batch updates and caching to manage Google Sheets API quotas efficiently.
+Security: Access control via Google OAuth; Role-based views (e.g., Sales only see their leads).
+Cron Jobs: Scheduled tasks for payment reminders (daily at 9 AM) and cohort deadline checks (daily at 10 AM).
+
+7. User Interface (UX) Needs
+Navigation: Clean sidebar navigation to switch between Leads, Programs, and Settings.
+Visual Feedback:
+Color-coded backgrounds for statuses (Green for Eligible, Red for Not Eligible).
+Loading states during API data fetches.
+Modals: Confirmation dialogs for critical actions like status changes, outlining the automated consequences (e.g., "This will send an email").
