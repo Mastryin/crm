@@ -14,5 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // Check if application is installed
+    $lockFile = storage_path('installed');
+
+    if (file_exists($lockFile)) {
+        // Redirect to admin panel if installed
+        return redirect('/admin');
+    } else {
+        // Redirect to installer if not installed
+        return redirect('/install.php');
+    }
 });
