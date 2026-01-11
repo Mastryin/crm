@@ -1,0 +1,130 @@
+<?php
+
+return [
+    [
+        'key' => 'educrm',
+        'name' => 'Education CRM',
+        'route' => 'admin.educrm',
+        'sort' => 8,
+    ],
+    [
+        'key' => 'educrm.programs',
+        'name' => 'Programs',
+        'route' => 'admin.educrm.programs',
+        'sort' => 1,
+    ],
+    [
+        'key' => 'educrm.programs.create',
+        'name' => 'Create',
+        'route' => 'admin.educrm.programs.create',
+        'sort' => 1,
+    ],
+    [
+        'key' => 'educrm.programs.edit',
+        'name' => 'Edit',
+        'route' => 'admin.educrm.programs.edit',
+        'sort' => 2,
+    ],
+    [
+        'key' => 'educrm.programs.delete',
+        'name' => 'Delete',
+        'route' => 'admin.educrm.programs.delete',
+        'sort' => 3,
+    ],
+    [
+        'key' => 'educrm.cohorts',
+        'name' => 'Cohorts',
+        'route' => 'admin.educrm.cohorts',
+        'sort' => 2,
+    ],
+    [
+        'key' => 'educrm.cohorts.create',
+        'name' => 'Create',
+        'route' => 'admin.educrm.cohorts.create',
+        'sort' => 1,
+    ],
+    [
+        'key' => 'educrm.cohorts.edit',
+        'name' => 'Edit',
+        'route' => 'admin.educrm.cohorts.edit',
+        'sort' => 2,
+    ],
+    [
+        'key' => 'educrm.cohorts.delete',
+        'name' => 'Delete',
+        'route' => 'admin.educrm.cohorts.delete',
+        'sort' => 3,
+    ],
+    [
+        'key' => 'educrm.payments',
+        'name' => 'Payments',
+        'route' => 'admin.educrm.payments',
+        'sort' => 3,
+    ],
+    [
+        'key' => 'educrm.payments.view',
+        'name' => 'View',
+        'route' => 'admin.educrm.payments.view',
+        'sort' => 1,
+    ],
+    [
+        'key' => 'educrm.payments.manage',
+        'name' => 'Manage',
+        'route' => 'admin.educrm.payments.manage',
+        'sort' => 2,
+    ],
+    [
+        'key' => 'educrm.qualification',
+        'name' => 'Qualification',
+        'route' => 'admin.educrm.qualification',
+        'sort' => 4,
+    ],
+    [
+        'key' => 'educrm.qualification.rules',
+        'name' => 'Manage Rules',
+        'route' => 'admin.educrm.qualification.rules',
+        'sort' => 1,
+    ],
+    [
+        'key' => 'educrm.qualification.override',
+        'name' => 'Manual Override',
+        'route' => 'admin.educrm.qualification.override',
+        'sort' => 2,
+    ],
+    [
+        'key' => 'educrm.automations',
+        'name' => 'Automations',
+        'route' => 'admin.educrm.automations',
+        'sort' => 5,
+    ],
+    [
+        'key' => 'educrm.automations.create',
+        'name' => 'Create',
+        'route' => 'admin.educrm.automations.create',
+        'sort' => 1,
+    ],
+    [
+        'key' => 'educrm.automations.edit',
+        'name' => 'Edit',
+        'route' => 'admin.educrm.automations.edit',
+        'sort' => 2,
+    ],
+    [
+        'key' => 'educrm.automations.delete',
+        'name' => 'Delete',
+        'route' => 'admin.educrm.automations.delete',
+        'sort' => 3,
+    ],
+    [
+        'key' => 'educrm.assignments',
+        'name' => 'Assignments',
+        'route' => 'admin.educrm.assignments',
+        'sort' => 6,
+    ],
+    [
+        'key' => 'educrm.assignments.manage',
+        'name' => 'Manage',
+        'route' => 'admin.educrm.assignments.manage',
+        'sort' => 1,
+    ],
+];

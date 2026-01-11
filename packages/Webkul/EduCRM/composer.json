@@ -1,0 +1,25 @@
+{
+    "name": "webkul/educrm",
+    "description": "Education CRM module for lead management, program tracking, and payments",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Webkul Software",
+            "email": "support@webkul.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webkul\\EduCRM\\Providers\\EduCRMServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Webkul\\EduCRM\\": "src/"
+        }
+    },
+    "minimum-stability": "dev"
+}
